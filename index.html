@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // On page load, get the start time from the query parameters
+      window.addEventListener("load", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const startTime = parseFloat(urlParams.get("startTime"));
+
+      if (startTime) {
+        const endTime = performance.now();
+        const redirectSpeed = endTime - startTime;
+        console.log(`Redirect speed: ${redirectSpeed.toFixed(2)} milliseconds`);
+      }
+      });
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
